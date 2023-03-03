@@ -11,3 +11,11 @@ terraform {
 provider "aws" {
   region = "us-west-1"
 }
+
+terraform {
+    backend "s3" {
+    bucket = "bucket-mariam"
+    key    = "terraform.tfstate"
+    region = "eu-north-1"
+  }
+}
