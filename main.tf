@@ -5,3 +5,9 @@ resource "aws_instance" "my-ec2"{
       Name="instance01-mariam"
     }
 }
+
+resource  "aws_eip" "my-eip"{
+    vpc = true
+}
+
+
