@@ -15,3 +15,9 @@ resource "aws_eip_association" "associate"{
     allocation_id=aws_eip.my-eip.id
 
 }
+
+output "eip_value" {
+    description = "VM IP"
+    value= aws_instance.my-ec2.public_ip
+
+}
