@@ -19,5 +19,14 @@ resource "aws_eip_association" "associate"{
 output "eip_value" {
     description = "VM IP"
     value= aws_instance.my-ec2.public_ip
+}
 
+output "ec2_name" {
+    description = "VM IP"
+    value= aws_instance.my-ec2.tags.Name
+}
+
+output "ec2_ami" {
+    description = "VM IP"
+    value= aws_instance.my-ec2.ami
 }
