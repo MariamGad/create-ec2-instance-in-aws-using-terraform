@@ -22,11 +22,11 @@ output "eip_value" {
 }
 
 output "ec2_name" {
-    description = "VM IP"
+    description = "VM name"
     value= aws_instance.my-ec2.tags.Name
 }
 
 output "ec2_ami" {
-    description = "VM IP"
+    description = "VM ami"
     value= aws_instance.my-ec2.ami
 }
