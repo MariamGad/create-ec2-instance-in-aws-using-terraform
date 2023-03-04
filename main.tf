@@ -4,6 +4,7 @@ resource "aws_instance" "my-ec2"{
     tags={
       Name="instance01-mariam"
     }
+    vpc_security_group_ids =[aws_security_group.allow_ssh.id]
 }
 
 resource  "aws_eip" "my-eip"{
@@ -29,4 +30,16 @@ output "ec2_name" {
 output "ec2_ami" {
     description = "VM ami"
     value= aws_instance.my-ec2.ami
+}
+
+resource "aws_security_group" "allow_ssh"{
+    name        = "SG_mariam_allow_ssh"
+    description = "Allow ssh inbound traffic"
+
+    ingress {
+    description      = "SSH from VPC"
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    }
 }
